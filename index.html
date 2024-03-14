@@ -1,0 +1,31 @@
+<!DOCTYPE html5>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="button-wrapper">
+    <h2>Curriculum</h2>
+        <button data-file="rené betancourt perera CV.pdf" class="button-30" role="button">archivo PDF</button>
+        <button data-file="rené betancourt perera CV.docx" class="button-30" role="button">docx (Word)</button>
+    </div>
+
+    <script>
+        document.addEventListener('click', function(e) {
+            if (e.target && e.target.matches('.button-30')) {
+                const fileUrl = e.target.getAttribute('data-file');
+                const downloadLink = document.createElement('a');
+                downloadLink.href = fileUrl;
+                downloadLink.download = ''; // Esto indica que se descargará el archivo al hacer clic en el enlace
+                downloadLink.style.display = 'none';
+                document.body.appendChild(downloadLink);
+                downloadLink.click();
+                document.body.removeChild(downloadLink);
+            }
+        });
+    </script>
+
+</body>
+</html>
